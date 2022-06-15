@@ -3,23 +3,26 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.11.1
-    run:
-      - checkout
-      - npm run lint
+    steps:
+      - run:
+          - checkout
+          - npm run lint
 
   test:
     docker:
       - image: circleci/node:8.11.1
-    run:
-      - checkout
-      - npm run test
+    steps:
+      - run:
+          - checkout
+          - npm run test
 
   analyze:
     docker:
       - image: circleci/node:8.11.1
-    run: 
-      - checkout
-      - npm run 
+    steps:
+      - run: 
+          - checkout
+          - npm run audit
 
 workflows:
   build:
