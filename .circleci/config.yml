@@ -5,12 +5,14 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm i
+      - run: 
+          - npm i
       - save-cache:
           - key: "npm-packages"
           - paths:
               - "/src/node_modules"
-      - run: npm run lint
+      - run: 
+          - npm run lint
 
   test:
     docker:
@@ -20,8 +22,10 @@ jobs:
       - restore_cache:
           - keys:
               - "npm-packages"
-      - run: npm i
-      - run: npm run test
+      - run: 
+          - npm i
+      - run: 
+          - npm run test
 
   analyze:
     docker:
@@ -31,7 +35,8 @@ jobs:
       - restore_cache:
           - keys:
               - "npm-packages"
-      - run: npm audit
+      - run: 
+          - npm audit
 
 
 workflows:
