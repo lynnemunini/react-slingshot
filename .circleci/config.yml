@@ -28,9 +28,9 @@ workflows:
   workflow-1:
     jobs:
       - build
-      - test:
-          requires:
+      - test
+          requires
             - build
-      - analyze:
-          requires:
+      - analyze
+          requires
             - test
